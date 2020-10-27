@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\title{ELECENG 2CJ4 Lab 5}
+\author{Raeed Hassan \\ hassam41 \\  \\ L01 \\ McMaster University}
+\usepackage{enumitem}
+\begin{document}
+\maketitle
+\pagebreak
+\begin{enumerate}[label=\alph*)]
+    \item
+    Assuming that the op-amp is ideal, we can assume that $V_+ = V_-$ and determine these values:
+    \[
+    \begin{aligned}
+        V_+ &= V_f\frac{Z_3}{Z_2+Z_3} \\
+        V_- &= V_o\frac{R_3}{R_3+R_4} \\
+        V_+ &= V_- \\
+        V_f\frac{Z_3}{Z_2+Z_3} &= V_o\frac{R_3}{R_3+R_4} \\
+        V_f &= V_o\frac{R_3}{R_3+R_4}(1+\frac{Z_2}{Z_3})
+    \end{aligned}    
+    \]
+    KCL at node $V_f$:  
+    \[
+    \begin{aligned}
+        0 &= \frac{V_f-V_i}{Z_1} + \frac{V_f-V_o}{Z_4} + \frac{V_f}{Z_2+Z_3} \\
+    \end{aligned}    
+    \]
+    We can combine these questions:
+    \[
+    \begin{aligned}
+        0 &= \frac{V_f-V_i}{Z_1} + \frac{V_f-V_o}{Z_4} + \frac{V_f}{Z_2+Z_3} \\
+        \frac{V_o-V_f}{Z_4} &= \frac{V_f-V_i}{Z_1} + \frac{V_f}{Z_2+Z_3} \\
+        \frac{V_o-V_f}{Z_4} &= \frac{(Z_2+Z_3)(V_f-V_i)+Z_1V_f}{Z_1(Z_2+Z_3)} \\
+        V_o-V_f &= Z_4\frac{(Z_2+Z_3)(V_f-V_i)+Z_1V_f}{Z_1(Z_2+Z_3)} \\
+        &\vdotswithin{=} \\ 
+        H(s) = \frac{V_o}{V_f} &= \frac{1+\frac{R_4}{R_3}}{R_1R_2C_1C_2s^2+s(R_1C_1+R_2C_1+R_1C_2(-\frac{R_4}{R_3}))+1}
+    \end{aligned}    
+    \]
+    The cutoff frequency $f_c$ is equal to $f_c = \frac{1}{2\pi\sqrt{R_1R_2C_1C_2}} = \frac{1}{2\pi 10k \cdot 10n} = 1591$ Hz.
+    The Q-factor $Q$ is equal to $Q = \frac{\sqrt{R_1R_2C_1C_2}}{R_1C_1+R_2C_1+R_1C_2(-\frac{R_4}{R_3})} \approx 0.5$.
+\end{enumerate}
+\end{document}

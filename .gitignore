@@ -1,0 +1,8 @@
+*.fft
+*.log
+*.plt
+*.raw
+*.gz
+*.aux
+*.fdb_latexmk
+*.fls
